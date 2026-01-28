@@ -99,10 +99,12 @@ ORDER BY quantity DESC;
 ## 2. Determine the distribution of orders by hour of the day.
 
 SELECT 
-    HOUR(order_time) AS Hour, COUNT(order_id) AS Hour_count
+    HOUR(order_time) AS order_hour,
+    COUNT(order_id) AS total_orders
 FROM
     orders
 GROUP BY HOUR(order_time)
+ORDER BY order_hour;
 
 
 ## 3. Join relevant tables to find the category-wise distribution of pizzas.
